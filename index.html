@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sona ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="container">
+        <!-- Header -->
+        <h1 class="glow-header">Happy Birthday ❤️ Sona</h1>
+
+        <!-- Birthday Slideshow -->
+        <div class="slideshow">
+            <img src="photo1.png" class="active" alt="Birthday Photo 1">
+            <img src="photo2.png" alt="Birthday Photo 2">
+            <img src="photo3.png" alt="Birthday Photo 3">
+        </div>
+
+        <!-- Stickers -->
+        <div class="stickers">🎂 🎈 🐼 🧸 💖</div>
+
+        <!-- Interactive Questions -->
+        <div class="question-box" id="questionBox">
+            <h2 class="question heartbeat" id="currentQuestion"></h2>
+            <div class="buttons">
+                <button class="btn yes" id="yesBtn" onclick="yesAnswer()">YES ❤️</button>
+                <button class="btn no" id="noBtn" onclick="noAnswer()">NO 😢</button>
+            </div>
+            <!-- Slide-down message container -->
+            <div id="noMessage" class="slide-message"></div>
+        </div>
+
+        <!-- Gift Surprise Button -->
+        <div class="gift-box">
+            <button class="btn gift" onclick="giftSurprise()">🎁 Birthday Surprise!</button>
+            <p id="giftMessage" class="giftMessage heartbeat"></p>
+        </div>
+
+        <!-- Birthday Love Letter -->
+        <div class="letter" id="letterBox" style="display:none;">
+            <p id="letterText" class="heartbeat"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

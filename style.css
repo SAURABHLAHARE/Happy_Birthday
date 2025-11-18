@@ -1,0 +1,149 @@
+/* Base Styles */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+body {
+    background: radial-gradient(circle at top, #6a0dad, #1b0032);
+    color:white;
+    text-align:center;
+    padding:20px;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Glowing header */
+.glow-header {
+    font-size:3rem;
+    text-shadow:0 0 10px #ff2e63,0 0 25px #ff7a9e,0 0 40px #6a0dad;
+    margin-bottom:30px;
+    animation: neonGlow 2s ease-in-out infinite;
+}
+@keyframes neonGlow {
+    0%,100%{text-shadow:0 0 10px #ff2e63,0 0 25px #ff7a9e,0 0 40px #6a0dad;}
+    50%{text-shadow:0 0 20px #ff7a9e,0 0 40px #ff2e63,0 0 50px #8a2be2;}
+}
+
+/* Slideshow */
+.slideshow{
+    width:300px; height:300px; margin:20px auto;
+    border-radius:20px; overflow:hidden;
+    box-shadow:0 0 25px #8a2be2; border:2px solid #ff2e63;
+}
+.slideshow img{
+    width:100%; height:100%; display:none;
+    object-fit:cover; border-radius:20px;
+}
+.slideshow img.active{ display:block; }
+
+/* Stickers */
+.stickers{ font-size:3rem; margin:10px 0 20px 0; }
+
+/* Question Box */
+.question-box{
+    background: rgba(255,255,255,0.1); 
+    padding:25px; 
+    border-radius:20px; 
+    border:1px solid rgba(255,46,99,0.2); 
+    margin-bottom:20px;
+}
+.question{
+    font-size:1.8rem; 
+    margin-bottom:20px; 
+    text-transform: capitalize;
+}
+.heartbeat{
+    display:inline-block; 
+    animation:beat 0.9s infinite;
+}
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+}
+
+/* Buttons */
+.buttons,.gift-box{
+    display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:10px;
+}
+.btn{
+    padding:14px 30px; font-size:1.2rem; font-weight:bold;
+    border-radius:50px; border:none; cursor:pointer;
+    text-transform:uppercase; transition:0.3s all;
+}
+.btn:hover{ transform:scale(1.1); box-shadow:0 0 20px #ff2e63,0 0 40px #ff7a9e; }
+.yes{ background:linear-gradient(45deg,#ff2e63,#ff7a9e); color:#fff; }
+.no{ background:linear-gradient(45deg,#444,#222); color:#ff2e63; border:2px solid #ff2e63; }
+.gift{ background:linear-gradient(45deg,#8a2be2,#cda2ff); color:#fff; }
+
+/* Love Letter */
+.letter{
+    background: rgba(255,255,255,0.05);
+    padding:25px; border-radius:20px; 
+    border:1px dashed rgba(255,46,99,0.3);
+    margin-top:20px; max-width:95%; margin-left:auto; margin-right:auto;
+    animation:fadeIn 1.5s ease-in;
+}
+.letter p{ font-size:1.4rem; line-height:1.7; word-wrap:break-word; }
+
+/* Confetti Canvas */
+#confettiCanvas{
+    position:fixed; top:0; left:0;
+    pointer-events:none;
+    z-index:9999;
+}
+
+/* Slide-down message for NO button */
+.slide-message{
+    margin-top:15px;
+    background: rgba(255,46,99,0.3);
+    color:white;
+    padding:10px 20px;
+    border-radius:20px;
+    font-size:1.2rem;
+    max-width:300px;
+    margin-left:auto;
+    margin-right:auto;
+    transform:translateY(-20px);
+    opacity:0;
+    transition:all 0.5s ease-in-out;
+}
+
+.slide-message.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* Gift message styling */
+.giftMessage{
+    font-size:1.4rem;
+    font-weight:bold;
+    color: #ff69b4;
+    margin-top:20px;
+    min-height:50px;
+    opacity:0;
+    transition:opacity 0.5s ease-in-out;
+    text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493, 0 0 30px #ff69b4;
+}
+
+/* Floating hearts animation */
+@keyframes floatHearts{
+    0%{ transform: translateY(0) scale(0.5); opacity:0.7; }
+    50%{ transform: translateY(-20px) scale(1); opacity:1; }
+    100%{ transform: translateY(-50px) scale(0.5); opacity:0; }
+}
+.heart{
+    position:absolute;
+    font-size:1.5rem;
+    animation: floatHearts 2s ease-in-out forwards;
+}
+
+/* Mobile Responsive */
+@media(max-width:600px){
+    h1{ font-size:2rem; }
+    .slideshow{ width:220px; height:220px; }
+    .btn{ padding:12px 25px; font-size:1rem; }
+    .stickers{ font-size:2.5rem; }
+    .question{ font-size:1.4rem; }
+    .letter p{ font-size:1.2rem; line-height:1.5; }
+    .heart{ font-size:1rem; }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
